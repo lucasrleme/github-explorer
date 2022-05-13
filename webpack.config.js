@@ -32,7 +32,11 @@ module.exports = {
       {
         test: /\.scss$/,
         exclude: /node_modules/, //node_modules já está pronto para o browser
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          {loader:'style-loader'}, 
+          {loader:'css-loader'}, 
+          {loader:'sass-loader'}
+        ],
       }
     ],
   }
