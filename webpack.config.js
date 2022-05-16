@@ -8,13 +8,13 @@ module.exports = {
   mode:isDevelopment ? 'development' : 'production',
   devtool: isDevelopment ? 'eval-source-map' : 'source-map',
   //entry: 'src/index.jsx'
-  entry: path.resolve(__dirname, 'src', 'index.jsx'), //qual é o arquivo principal, inicial da aplicação
+  entry: path.resolve(__dirname, 'src', 'index.tsx'), //qual é o arquivo principal, inicial da aplicação
   output:{
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', 'ts', '.tsx'],
   },
   devServer: {
     static: path.resolve(__dirname, 'public'), //onde fica o conteudo do arquivo html estatico da nossa aplicação
@@ -29,7 +29,7 @@ module.exports = {
   module:{ //define o comportamento dos loaders para cada tipo de arquivo
     rules: [
       {
-        test: /\.jsx$/,
+        test: /\.(j|t)sx$/,
         exclude: /node_modules/, //node_modules já está pronto para o browser
         use: {
           loader:'babel-loader',
